@@ -13,4 +13,20 @@ void main() {
   for (int i = 0; i < juegos.length; i++) {
     print('[$i] ${juegos[i]} - Stock: ${stock[i]} - Precio: \$${precios[i]}');
   }
+
+  int opcion = 2;
+
+  switch (opcion) {
+    case 1:
+      print('\nModo: Ver inventario');
+      break;
+    case 2:
+      print('\nModo: Vender juego');
+      break;
+    case 3:
+      print('\nModo: Agregar stock');
+      break;
+    default:
+      print('\nOpción inválida');
+  }
 }
