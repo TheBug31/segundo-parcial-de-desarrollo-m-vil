@@ -29,4 +29,29 @@ void main() {
     default:
       print('\nOpción inválida');
   }
+
+  int juegoElegido = 1;
+  int cantidad = 5;
+
+  try {
+    if (juegoElegido < 0 || juegoElegido >= juegos.length) {
+      throw Exception('El juego no existe');
+    }
+
+    if (stock[juegoElegido] == 0) {
+      throw Exception('El juego está agotado');
+    } else if (cantidad > stock[juegoElegido]) {
+      throw Exception(
+        'No hay suficiente stock. Solo hay ${stock[juegoElegido]}',
+      );
+    } else {
+      stock[juegoElegido] -= cantidad;
+      double total = cantidad * precios[juegoElegido];
+      print('\nVenta exitosa: $cantidad x ${juegos[juegoElegido]}');
+      print('Total: \$$total COP');
+      print('Stock restante: ${stock[juegoElegido]}');
+    }
+  } catch (e) {
+    print('\nError: $e');
+  }
 }
